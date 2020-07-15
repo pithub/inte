@@ -25,31 +25,6 @@
     <script>
         $(document).ready(function () {
 
-            // bei Freigabe einer Bestellung die "Ausgeliefert" Checkbox aktivieren
-            $("tbody").on("click", ".freigabe", function () {
-                let zeile = $(this).parents("tr").first();
-                let lieferung = zeile.find(".lieferung").first();
-                if (this.checked) {
-                    lieferung.removeAttr("disabled");
-                } else {
-                    lieferung.attr("disabled", true);
-                }
-            });
-
-            // wenn eine Bestellung ausgeliefert ist, soll die Zeile markiert werden
-            // und die "Freigegeben" Checkbox deaktiviert werden
-            $("tbody").on("click", ".lieferung", function () {
-                let zeile = $(this).parents("tr").first();
-                let freigabe = zeile.find(".freigabe").first();
-                if (this.checked) {
-                    zeile.addClass("text-success")
-                    freigabe.attr("disabled", true);
-                } else {
-                    zeile.removeClass("text-success")
-                    freigabe.removeAttr("disabled");
-                }
-            });
-
             // von der Kontaktseite übergebene Werte bestimmen
             // siehe https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
             let paramsArray = window.location.search.substr(1).split('&');
@@ -84,6 +59,40 @@
                     </tr>
                 `);
             }
+
+            // Titel anpassen, je nachdem, wer die Seite aufgerufen hat
+            if (params.user == "apotheker") {
+                $("#titel").text("Bestellungen freigeben");
+            } else if (params.user == "lieferant") {
+                $("#titel").text("Bestellungen ausliefern");
+            } else {
+                $("#titel").text("Bestellungen");
+            }
+
+            // bei Freigabe einer Bestellung die "Ausgeliefert" Checkbox aktivieren
+            $("tbody").on("click", ".freigabe", function () {
+                let zeile = $(this).parents("tr").first();
+                let lieferung = zeile.find(".lieferung").first();
+                if (this.checked) {
+                    lieferung.removeAttr("disabled");
+                } else {
+                    lieferung.attr("disabled", true);
+                }
+            });
+
+            // wenn eine Bestellung ausgeliefert ist, soll die Zeile markiert werden
+            // und die "Freigegeben" Checkbox deaktiviert werden
+            $("tbody").on("click", ".lieferung", function () {
+                let zeile = $(this).parents("tr").first();
+                let freigabe = zeile.find(".freigabe").first();
+                if (this.checked) {
+                    zeile.addClass("text-success")
+                    freigabe.attr("disabled", true);
+                } else {
+                    zeile.removeClass("text-success")
+                    freigabe.removeAttr("disabled");
+                }
+            });
         });
     </script>
 </head>
@@ -120,7 +129,7 @@
         <div class="container-fluid padding">
             <div class="row welcome text-center">
                 <div class="col-12">
-                    <h1 class="display-4">Bestellungen</h1>
+                    <h1 class="display-4" id="titel">Bestellungen</h1>
                     <hr>
                 </div>
             </div>
