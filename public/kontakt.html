@@ -74,42 +74,47 @@
 
 
 
-    <div class="container-fluid padding">
-        <div class="row welcome text-center">
-            <div class="col-12">
-                <h1 class="display-4">Kontakt</h1>
-            </div>
-            <hr>
-            <div class="col-12">
-                <p class="lead">Geben Sie hier die Daten Ihrer Bestellung ein:</p>
+    <header>
+        <div class="container-fluid padding">
+            <div class="row welcome text-center">
+                <div class="col-12">
+                    <h1 class="display-4">Kontakt</h1>
+                    <hr>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 
 
 
-
-    <div class="container-fluid padding">
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <form novalidate>
-                    <div class="form-group">
-                        <label for="name">Geben Sie hier Ihren Namen ein:</label>
-                        <input type="text" class="form-control" id="name" name="name" pattern=".*\S \S.*" required>
-                        <div class="invalid-feedback">Bitte geben Sie Vor- und Nachname ein</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="medikament">Welches Medikament benötigen Sie?</label>
-                        <input type="text" class="form-control" id="medikament" name="medikament" required>
-                        <div class="invalid-feedback">Bitte geben Sie ein Medikament ein</div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Bestellen</button>
-                </form>
+    <main>
+        <div class="container padding">
+            <div class="row">
+                <div class="col col-lg-8 offset-lg-2">
+                    <p class="lead">Geben Sie hier die Daten Ihrer Bestellung ein:</p>
+                </div>
             </div>
-            <div class="col-2"></div>
+
+            <div class="row">
+                <div class="col col-lg-8 offset-lg-2">
+                    <form novalidate>
+                        <div class="form-group">
+                            <label for="name">Unter welchem Namen dürfen wir Ihre Bestellung aufnehmen:</label>
+                            <input type="text" class="form-control" id="name" name="name" pattern=".*\S \S.*" required>
+                            <div class="invalid-feedback">Bitte geben Sie Vor- und Nachname ein</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="medikament">Welches Medikament benötigen Sie?</label>
+                            <input type="text" class="form-control" id="medikament" name="medikament" required>
+                            <div class="invalid-feedback">Bitte geben Sie ein Medikament ein</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Bestellen</button>
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
         </div>
-    </div>
+    </main>
 
 
 

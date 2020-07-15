@@ -122,85 +122,103 @@
 
 
 
-    <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-lg-9">
-                <h2>Bestellungen</h2>
-                <p>Erfahrene ApothekerInnen prüfen Ihre Bestellung.
-                    Wenn alles in Ordnung ist, wird sie für die Lieferung freigegeben.
-                    Unsere freundlichen Lieferanten bringen dann Ihre bestellten Medikamente ruck zuck zu Ihnen.
-                </p>
-
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Kunde</th>
-                            <th scope="col">Medikamente</th>
-                            <th scope="col">Freigegeben</th>
-                            <th scope="col">Ausgeliefert</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Frau A</td>
-                            <td>Kopfschmerztabletten</td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input freigabe" id="freigabe1"
-                                        aria-label="Bestellung 1 freigegeben">
-                                    <label class="custom-control-label" for="freigabe1"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input lieferung" id="lieferung1"
-                                        disabled aria-label="Bestellung 1 ausgeliefert">
-                                    <label class="custom-control-label" for="lieferung1"></label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Herr B</td>
-                            <td>Stützstrumpf</td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input freigabe" id="freigabe2"
-                                        aria-label="Bestellung 2 freigegeben">
-                                    <label class="custom-control-label" for="freigabe2"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input lieferung" id="lieferung2"
-                                        disabled aria-label="Bestellung 2 ausgeliefert">
-                                    <label class="custom-control-label" for="lieferung2"></label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Frau C</td>
-                            <td>Hustensaft</td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input freigabe" id="freigabe3"
-                                        aria-label="Bestellung 3 freigegeben">
-                                    <label class="custom-control-label" for="freigabe3"></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input lieferung" id="lieferung3"
-                                        disabled aria-label="Bestellung 3 ausgeliefert">
-                                    <label class="custom-control-label" for="lieferung3"></label>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+    <header>
+        <div class="container-fluid padding">
+            <div class="row welcome text-center">
+                <div class="col-12">
+                    <h1 class="display-4">Bestellungen</h1>
+                    <hr>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
+
+
+
+    <main>
+        <div class="container padding">
+            <div class="row padding">
+                <div class="col-12">
+                    <p>Erfahrene ApothekerInnen prüfen Ihre Bestellung.
+                        Wenn alles in Ordnung ist, wird sie für die Lieferung freigegeben.
+                        Unsere freundlichen Lieferanten bringen dann Ihre bestellten Medikamente ruck zuck zu Ihnen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row padding">
+                <div class="col-12 table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Kunde</th>
+                                <th scope="col">Medikamente</th>
+                                <th scope="col">Freigegeben</th>
+                                <th scope="col">Ausgeliefert</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Frau A</td>
+                                <td>Kopfschmerztabletten</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input freigabe" id="freigabe1"
+                                            aria-label="Bestellung 1 freigegeben">
+                                        <label class="custom-control-label" for="freigabe1"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input lieferung" id="lieferung1"
+                                            disabled aria-label="Bestellung 1 ausgeliefert">
+                                        <label class="custom-control-label" for="lieferung1"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Herr B</td>
+                                <td>Stützstrumpf</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input freigabe" id="freigabe2"
+                                            aria-label="Bestellung 2 freigegeben">
+                                        <label class="custom-control-label" for="freigabe2"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input lieferung" id="lieferung2"
+                                            disabled aria-label="Bestellung 2 ausgeliefert">
+                                        <label class="custom-control-label" for="lieferung2"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Frau C</td>
+                                <td>Hustensaft</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input freigabe" id="freigabe3"
+                                            aria-label="Bestellung 3 freigegeben">
+                                        <label class="custom-control-label" for="freigabe3"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input lieferung" id="lieferung3"
+                                            disabled aria-label="Bestellung 3 ausgeliefert">
+                                        <label class="custom-control-label" for="lieferung3"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </main>
 
 
 
