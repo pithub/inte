@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aOAP - Ihre Online-Apotheke</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Eigener Javascript Code -->
+    <script>
+        $(document).ready(function () {
+
+            // bei Freigabe einer Bestellung die "Ausgeliefert" Checkbox aktivieren
+            $(".freigabe").click(function () {
+                var lieferung = $(this).parents("tr").first().find(".lieferung").first();
+                if (this.checked) {
+                    lieferung.removeAttr("disabled");
+                } else {
+                    lieferung.attr("disabled", true);
+                }
+            });
+
+            // wenn eine Bestellung ausgeliefert ist, soll die Zeile markiert werden
+            // und die "Freigegeben" Checkbox deaktiviert werden
+            $(".lieferung").click(function () {
+                var zeile = $(this).parents("tr").first();
+                var freigabe = zeile.find(".freigabe").first();
+                if (this.checked) {
+                    zeile.addClass("text-success")
+                    freigabe.attr("disabled", true);
+                } else {
+                    zeile.removeClass("text-success")
+                    freigabe.removeAttr("disabled");
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo.jpg"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href=".">Begrüßungsseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ueber-uns.html">Über uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="angebote.html">Unsere Angebote</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontakt.html">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container-fluid padding">
+        <div class="row padding">
+            <div class="col-lg-6">
+                <h2>Bestellungen</h2>
+                <p>Erfahrene ApothekerInnen prüfen Ihre Bestellung.
+                    Wenn alles in Ordnung ist, wird sie für die Lieferung freigegeben.
+                    Unsere freundlichen Lieferanten bringen dann Ihre bestellten Medikamente ruck zuck zu Ihnen.
+                </p>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Kunde</th>
+                            <th scope="col">Medikamente</th>
+                            <th scope="col">Freigegeben</th>
+                            <th scope="col">Ausgeliefert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frau A</th>
+                            <td>Kopfschmerztabletten</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static freigabe" type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 freigegeben">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static lieferung" disabled type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 ausgeliefert">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Herr B</th>
+                            <td>Stützstrumpf</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static freigabe" type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 freigegeben">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static lieferung" disabled type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 ausgeliefert">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Frau C</th>
+                            <td>Hustensaft</td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static freigabe" type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 freigegeben">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input position-static lieferung" disabled type="checkbox"
+                                        value="option1" aria-label="Bestellung 1 ausgeliefert">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="img/logo.jpg">
+                    <hr class="light">
+                    <p>0176 696969 420</p>
+                    <p>aOAP@apotheke.de</p>
+                    <p>Alle Straßen</p>
+                    <p>78467 Konstanz</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Unsere Verfügbarkeiten</h5>
+                    <hr class="light">
+                    <p>Montag-Freitag: 8 - 16 Uhr</p>
+                    <p>Samstag: 10 - 14 Uhr</p>
+                    <p>Sonntags: In Notfällen</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Service Bereiche</h5>
+                    <hr class="light">
+                    <p>78467 Konstanz</p>
+                    <p>78468 Konstanz</p>
+                    <p>78469 Konstanz</p>
+                    <p>78470 Konstanz</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; aOAP.de</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
