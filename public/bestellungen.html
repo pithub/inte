@@ -26,8 +26,9 @@
         $(document).ready(function () {
 
             // bei Freigabe einer Bestellung die "Ausgeliefert" Checkbox aktivieren
-            $(".freigabe").click(function () {
-                var lieferung = $(this).parents("tr").first().find(".lieferung").first();
+            $("tbody").on("click", ".freigabe", function () {
+                let zeile = $(this).parents("tr").first();
+                let lieferung = zeile.find(".lieferung").first();
                 if (this.checked) {
                     lieferung.removeAttr("disabled");
                 } else {
@@ -37,9 +38,9 @@
 
             // wenn eine Bestellung ausgeliefert ist, soll die Zeile markiert werden
             // und die "Freigegeben" Checkbox deaktiviert werden
-            $(".lieferung").click(function () {
-                var zeile = $(this).parents("tr").first();
-                var freigabe = zeile.find(".freigabe").first();
+            $("tbody").on("click", ".lieferung", function () {
+                let zeile = $(this).parents("tr").first();
+                let freigabe = zeile.find(".freigabe").first();
                 if (this.checked) {
                     zeile.addClass("text-success")
                     freigabe.attr("disabled", true);
@@ -89,7 +90,7 @@
 
     <div class="container-fluid padding">
         <div class="row padding">
-            <div class="col-lg-6">
+            <div class="col-lg-9">
                 <h2>Bestellungen</h2>
                 <p>Erfahrene ApothekerInnen prüfen Ihre Bestellung.
                     Wenn alles in Ordnung ist, wird sie für die Lieferung freigegeben.
