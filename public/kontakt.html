@@ -25,10 +25,15 @@
     <script>
         $(document).ready(function () {
 
-            // die Daten der Bestellung an die nächste Seite weitergeben
+            // Die Daten der Bestellung prüfen
+            // Wenn in Ordnung, Daten an die nächste Seite weitergeben
             $("form").submit(function (event) {
                 event.preventDefault();
-                window.location.href = "bestellungen.html?" + $(this).serialize();
+                if (this.checkValidity()) {
+                    window.location.href = "bestellungen.html?" + $(this).serialize();
+                } else {
+                    $(this).addClass("was-validated");
+                }
             });
 
         });
@@ -88,18 +93,16 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <form id="f2">
+                <form novalidate>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" Namedby="nameHelp">
-                        <small id="nameHelp" class="form-text text-muted">Geben Sie hier Ihren Namen ein</small>
+                        <label for="name">Geben Sie hier Ihren Namen ein:</label>
+                        <input type="text" class="form-control" id="name" name="name" pattern=".*\S \S.*" required>
+                        <div class="invalid-feedback">Bitte geben Sie Vor- und Nachname ein</div>
                     </div>
                     <div class="form-group">
-                        <label for="medikament">Medikament</label>
-                        <input type="text" class="form-control" id="medikament" name="medikament"
-                            Namedby="medikamentHelp">
-                        <small id="medikamentHelp" class="form-text text-muted">Geben Sie hier das gewünschte Medikament
-                            ein</small>
+                        <label for="medikament">Welches Medikament benötigen Sie?</label>
+                        <input type="text" class="form-control" id="medikament" name="medikament" required>
+                        <div class="invalid-feedback">Bitte geben Sie ein Medikament ein</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Bestellen</button>
                 </form>
