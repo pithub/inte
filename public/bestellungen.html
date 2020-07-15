@@ -50,6 +50,40 @@
                 }
             });
 
+            // von der Kontaktseite übergebene Werte bestimmen
+            // siehe https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+            let paramsArray = window.location.search.substr(1).split('&');
+            let params = {};
+            for (let i = 0; i < paramsArray.length; ++i) {
+                let param = paramsArray[i].split('=', 2);
+                if (param.length !== 2)
+                    continue;
+                params[param[0]] = decodeURIComponent(param[1].replace(/\+/g, " "));
+            }
+
+            // übergebene Werte zu Tabelle hinzufügen
+            if (params.name && params.medikament) {
+                $("tbody").append(`
+                    <tr>
+                        <td>${params.name}</th>
+                        <td>${params.medikament}</td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input freigabe" id="freigabeX"
+                                    aria-label="Bestellung X freigegeben">
+                                <label class="custom-control-label" for="freigabeX"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input lieferung" id="lieferungX"
+                                    disabled aria-label="Bestellung X ausgeliefert">
+                                <label class="custom-control-label" for="lieferungX"></label>
+                            </div>
+                        </td>
+                    </tr>
+                `);
+            }
         });
     </script>
 </head>

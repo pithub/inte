@@ -20,6 +20,19 @@
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     <link href="style.css" rel="stylesheet">
+
+    <!-- Eigener Javascript Code -->
+    <script>
+        $(document).ready(function () {
+
+            // die Daten der Bestellung an die nächste Seite weitergeben
+            $("form").submit(function (event) {
+                event.preventDefault();
+                window.location.href = "bestellungen.html?" + $(this).serialize();
+            });
+
+        });
+    </script>
 </head>
 
 <body>
